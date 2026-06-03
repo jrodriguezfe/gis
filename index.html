@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maison Du Biscuit - Pastelería Fina de Autor</title>
+    <title>Mildres's - Pastelería Fina de Autor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -19,24 +19,33 @@
     <!-- Header / Barra de Navegación Premium -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">Maison<span>DuBiscuit</span></a>
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-terracotta)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
+                    <path d="M12 21v-4"></path>
+                    <path d="M9 7a3 3 0 0 0 6 0c0-4-3-4-3-4s-3 0-3 4"></path>
+                    <path d="M14 17c2-1 3-3.5 3-6 0-3-2-4-2-4"></path>
+                    <path d="M10 17c-2-1-3-3.5-3-6 0-3 2-4 2-4"></path>
+                    <rect x="10" y="17" width="4" height="4" rx="1"></rect>
+                </svg>
+                Mildres<span>'s</span>
+            </a>
             
             <ul class="nav-menu">
                 <li><a href="#" class="nav-link">Inicio</a></li>
                 <li><a href="#" class="nav-link">La Carta</a></li>
                 <li><a href="#" class="nav-link">Nuestras Tiendas</a></li>
+                <li><a href="#chef" class="nav-link">La Chef</a></li>
                 <li><a href="#" class="nav-link">Compromiso Real</a></li>
             </ul>
 
             <div class="nav-actions">
+                <!-- Iniciar Sesión Admin -->
+                <button class="icon-btn" id="login-admin-btn" aria-label="Iniciar Sesión Admin" onclick="toggleAdminMode()" title="Modo Administrador">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
                 <!-- Buscador Minimalista -->
                 <button class="icon-btn" aria-label="Buscar">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </button>
-                <!-- Indicador de Carrito Exclusivo -->
-                <button class="icon-btn" id="cart-icon-btn" aria-label="Carrito de compras">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                    <span class="cart-count" id="cart-counter">0</span>
                 </button>
             </div>
         </div>
@@ -47,16 +56,16 @@
         
         <!-- Galería Izquierda (Enfoque Visual Limpio) -->
         <section class="product-gallery">
-            <div class="main-image-wrapper">
+            <div class="main-image-wrapper editable-image" onclick="openImageEditor('main-display', 'productImgUrl', 'product-img-upload')">
                 <div class="main-image-placeholder" id="main-display">
                     <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.4z"/></svg>
                     <span>[Fotografía de Alta Resolución: Pionono Crujiente Premium de Manjarblanco de Olla]</span>
                 </div>
             </div>
             <div class="thumbnail-grid">
-                <div class="thumb-item active" onclick="changeThumb(this, 'Vista General')"></div>
-                <div class="thumb-item" onclick="changeThumb(this, 'Detalle del Relleno')"></div>
-                <div class="thumb-item" onclick="changeThumb(this, 'Empaque de Regalo Premium')"></div>
+                <div class="thumb-item active editable-image" id="thumb-display-1" onclick="handleThumbClick(this, 'Vista General', 'thumb-display-1', 'thumbImgUrl1', 'thumb-1-upload')"></div>
+                <div class="thumb-item editable-image" id="thumb-display-2" onclick="handleThumbClick(this, 'Detalle del Relleno', 'thumb-display-2', 'thumbImgUrl2', 'thumb-2-upload')"></div>
+                <div class="thumb-item editable-image" id="thumb-display-3" onclick="handleThumbClick(this, 'Empaque de Regalo Premium', 'thumb-display-3', 'thumbImgUrl3', 'thumb-3-upload')"></div>
             </div>
         </section>
 
@@ -104,39 +113,83 @@
                 </div>
             </div>
 
-            <!-- Acciones de Compra e Interacción -->
-            <div class="purchase-actions">
-                <div class="quantity-controller">
-                    <button class="qty-btn" onclick="updateQty(-1)" aria-label="Disminuir cantidad">-</button>
-                    <input type="text" class="qty-input" id="product-qty" value="1" readonly>
-                    <button class="qty-btn" onclick="updateQty(1)" aria-label="Aumentar cantidad">+</button>
-                </div>
-                
-                <button class="btn-add-cart" onclick="addToCart()">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line></svg>
-                    Añadir al Carrito
-                </button>
-            </div>
-
             <!-- Canal de Asesoría por WhatsApp para Cierre de Ventas Complejas -->
-            <a href="https://wa.me/51919294657?text=Hola,%20deseo%20asesoría%20personalizada%20sobre%20el%20Pionono%20Artesanal." target="_blank" class="btn-whatsapp">
+            <a href="https://wa.me/51910935984?text=Hola,%20deseo%20asesoría%20personalizada%20sobre%20el%20Pionono%20Artesanal." target="_blank" class="btn-whatsapp">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.69-4.98c-.202-.1-1.195-.588-1.378-.654-.182-.066-.315-.099-.445.1-.13.197-.5.622-.613.75-.113.128-.226.143-.428.043-1.2-.601-2.022-1.104-2.816-2.466-.214-.369.214-.343.613-1.14.07-.143.036-.268-.018-.369-.054-.1-.445-1.07-.61-1.464-.16-.386-.322-.334-.445-.34-.114-.007-.245-.007-.376-.007a.726.726 0 0 0-.528.247C4.52 5.182 4.06 5.61 4.06 6.477c0 .867.633 1.705.721 1.823.089.119 1.248 1.907 3.023 2.67.422.182.75.291.1.372.422-.08.813-.23 1.126-.382.314-.153.629-.413.715-.7.086-.289.086-.536.06-.587-.026-.051-.1-.082-.301-.182z"/></svg>
                 Consultar por WhatsApp (Atención Inmediata)
             </a>
         </section>
     </main>
 
+    <!-- Sección de la Chef Gis (Alto Impacto) -->
+    <section class="chef-section" id="chef">
+        <div class="chef-container">
+            <div class="chef-image-wrapper editable-image" onclick="openImageEditor('chef-display', 'chefImgUrl', 'chef-img-upload')">
+                <div class="chef-image-placeholder" id="chef-display">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"></path><path d="M12 3a2 2 0 0 0-2 2v2a2 2 0 0 0 4 0V5a2 2 0 0 0-2-2Z"></path><path d="M12 12v9"></path><path d="M8 7v5"></path><path d="M16 7v5"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="chef-content">
+                <span class="chef-badge">El Alma de Mildres's</span>
+                <h2 class="chef-title">Conoce a la Chef Gis</h2>
+                <p class="chef-quote">"Cada creación es un poema comestible, un homenaje a la técnica pura y al respeto absoluto por los ingredientes."</p>
+                <p class="chef-bio">
+                    Con formación en las escuelas más prestigiosas de Europa, la Chef Gis combina la precisión de la pastelería clásica con el alma y los sabores de nuestra tierra. Su visión redefine el concepto de lo dulce, transformando cada postre en una experiencia sensorial inolvidable.
+                </p>
+                <div class="chef-signature">Gisela</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Toast / Notificación de Interacción Premium -->
     <div class="toast-notification" id="cart-toast">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <span>¡Producto añadido exquisitamente al carrito!</span>
+        <span></span>
     </div>
 
     <!-- Footer Corporativo Internacional -->
     <footer>
-        <p>© 2026 Maison Du Biscuit. Todos los derechos reservados. Diseñado bajo estándares internacionales de UX/UI.</p>
+        <p>© 2026 Mildres's. Todos los derechos reservados. Diseñado bajo estándares internacionales de UX/UI.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Modal de Login Admin -->
+    <div class="login-modal" id="login-modal">
+        <div class="login-content">
+            <button class="close-modal" onclick="closeLoginModal()">&times;</button>
+            <h3 style="margin-bottom: 15px; color: var(--primary-dark); font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;">Acceso Administrativo</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Ingrese su credencial para editar el contenido.</p>
+            <input type="email" id="admin-email" placeholder="Correo electrónico" class="login-input" style="margin-bottom: 10px;">
+            <input type="password" id="admin-password" placeholder="Contraseña" class="login-input" style="margin-bottom: 15px;">
+            <button class="btn-add-cart" onclick="authenticateAdmin()" style="width: 100%;">Ingresar</button>
+            <p id="login-error" style="color: #d9534f; font-size: 0.8rem; margin-top: 10px; display: none;">Contraseña incorrecta.</p>
+        </div>
+    </div>
+
+    <!-- Modal de Edición de Imagen -->
+    <div class="login-modal" id="image-edit-modal">
+        <div class="login-content">
+            <button class="close-modal" onclick="closeImageEditor()">&times;</button>
+            <h3 style="margin-bottom: 15px; color: var(--primary-dark); font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;">Editar Imagen</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Pegue cualquier código de Postimages (Enlace directo, Markdown, BBCode, HTML) o suba un archivo local.</p>
+            
+            <input type="text" id="image-url-input" placeholder="https://... o código [img]..." class="login-input" style="margin-bottom: 15px;">
+            <button class="btn-add-cart" onclick="saveImageUrl()" style="width: 100%; margin-bottom: 10px;">Guardar Enlace URL</button>
+            
+            <div style="margin: 15px 0; color: var(--text-muted); font-size: 0.85rem;">— o —</div>
+            
+            <button class="btn-add-cart" onclick="triggerCurrentUpload()" style="width: 100%; background-color: var(--text-main);">Subir Archivo Local</button>
+        </div>
+    </div>
+
+    <!-- Inputs ocultos para subida de imágenes en Modo Admin -->
+    <input type="file" id="product-img-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event, 'main-display')">
+    <input type="file" id="chef-img-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event, 'chef-display')">
+    <input type="file" id="thumb-1-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event, 'thumb-display-1')">
+    <input type="file" id="thumb-2-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event, 'thumb-display-2')">
+    <input type="file" id="thumb-3-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event, 'thumb-display-3')">
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
