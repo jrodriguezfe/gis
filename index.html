@@ -31,11 +31,11 @@
             </a>
             
             <ul class="nav-menu">
-                <li><a href="#" class="nav-link">Inicio</a></li>
-                <li><a href="#" class="nav-link">La Carta</a></li>
-                <li><a href="#" class="nav-link">Nuestras Tiendas</a></li>
-                <li><a href="#chef" class="nav-link">La Chef</a></li>
-                <li><a href="#" class="nav-link">Compromiso Real</a></li>
+                <li><a href="#" class="nav-link" onclick="closeMenu()">Inicio</a></li>
+                <li><a href="#" class="nav-link" onclick="closeMenu()">La Carta</a></li>
+                <li><a href="#" class="nav-link" onclick="closeMenu()">Nuestras Tiendas</a></li>
+                <li><a href="#chef" class="nav-link" onclick="closeMenu()">La Chef</a></li>
+                <li><a href="#" class="nav-link" onclick="closeMenu()">Compromiso Real</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -48,7 +48,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 </button>
                 <!-- Menú Hamburguesa (Móvil) -->
-                <button class="icon-btn hamburger-btn" id="hamburger-btn" aria-label="Menú">
+                <button class="icon-btn hamburger-btn" id="hamburger-btn" aria-label="Menú" onclick="toggleMenu()">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
             </div>
@@ -193,6 +193,16 @@
     <input type="file" id="thumb-1-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event, 'thumb-display-1')">
     <input type="file" id="thumb-2-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event, 'thumb-display-2')">
     <input type="file" id="thumb-3-upload" accept="image/*" style="display: none;" onchange="handleImageUpload(event, 'thumb-display-3')">
+
+    <!-- Lógica de Interfaz de Usuario (Instantánea) -->
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        }
+        function closeMenu() {
+            document.querySelector('.nav-menu').classList.remove('active');
+        }
+    </script>
 
     <script type="module" src="script.js"></script>
 </body>
