@@ -40,6 +40,19 @@ document.querySelectorAll('input[name="size"]').forEach(radio => {
     });
 });
 
+// Control del Menú Hamburguesa (Móvil)
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const navMenu = document.querySelector('.nav-menu');
+
+if (hamburgerBtn && navMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => navMenu.classList.remove('active'));
+    });
+}
+
 // Control Visual de la Galería de Miniaturas
 function handleThumbClick(element, detailName, targetId, fieldName, fileInputId) {
     if (isAdmin) {

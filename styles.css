@@ -138,6 +138,10 @@ header {
     transform: translateY(-2px);
 }
 
+.hamburger-btn {
+    display: none;
+}
+
 /* Estructura Principal de Contenido */
 .product-container {
     max-width: 1200px;
@@ -545,15 +549,28 @@ footer {
         font-size: 1.4rem;
     }
     .nav-menu {
-        flex: 1 1 100%;
-        order: 3;
-        justify-content: center;
-        margin-top: 15px;
-        gap: 12px;
-        flex-wrap: wrap;
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-cream);
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-light);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    .nav-menu.active {
+        display: flex;
     }
     .nav-link {
-        font-size: 0.75rem;
+        font-size: 1rem;
+        display: block;
+        padding: 10px 20px;
+        text-align: center;
+    }
+    .hamburger-btn {
+        display: block;
     }
     .product-container {
         padding: 0 20px;
