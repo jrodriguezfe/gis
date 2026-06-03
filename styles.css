@@ -531,6 +531,88 @@ footer {
     }
 }
 
+/* Adaptación específica para Celulares (Smartphones) */
+@media (max-width: 768px) {
+    .promo-banner {
+        font-size: 0.65rem;
+        padding: 8px 10px;
+    }
+    .nav-container {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+    .logo {
+        font-size: 1.4rem;
+    }
+    .nav-menu {
+        flex: 1 1 100%;
+        order: 3;
+        justify-content: center;
+        margin-top: 15px;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .nav-link {
+        font-size: 0.75rem;
+    }
+    .product-container {
+        padding: 0 20px;
+        margin: 20px auto;
+    }
+    .product-title {
+        font-size: 1.8rem;
+    }
+    .product-price {
+        font-size: 1.5rem;
+    }
+    .main-image-placeholder {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    .thumbnail-grid {
+        justify-content: center;
+    }
+    .product-meta-specs {
+        gap: 10px;
+    }
+    .spec-label {
+        font-size: 0.65rem;
+    }
+    .spec-value {
+        font-size: 0.75rem;
+    }
+    .size-options {
+        flex-direction: column;
+    }
+    .btn-whatsapp {
+        font-size: 0.8rem;
+        padding: 12px;
+        text-align: center;
+    }
+    .chef-section {
+        padding: 60px 20px;
+    }
+    .chef-image-wrapper {
+        max-width: 250px;
+    }
+    .chef-title {
+        font-size: 2.2rem;
+    }
+    .chef-quote {
+        font-size: 1.3rem;
+    }
+    .toast-notification {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+    .login-content {
+        padding: 30px 20px;
+    }
+}
+
 /* Modal de Login */
 .login-modal {
     position: fixed;
